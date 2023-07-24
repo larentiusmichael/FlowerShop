@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "GetTemporaryImage";
+}
+
+<center>
+    <h1>Sample for Testing Temporary URL Link:</h1>
+    <br/><hr /><hr />
+    <form asp-action="DisplayImageFromS3" asp-controller="S3Example">
+        <img src="@ViewBag.presignedURL" width="300" height="500" />
+        <br /><br />
+        <button type="submit" class="btn-info">Back to Gallery</button>
+    </form>
+</center>
+
+

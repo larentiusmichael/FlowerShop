@@ -1,0 +1,54 @@
+﻿@model List<Flower>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+<h1>Flower List Information</h1>
+<br />
+<hr />
+    @if (ViewBag.msg != "")
+    {
+        <span style="background-color: aquamarine">@ViewBag.msg</span>
+    }
+<hr />
+<br />
+<form>
+    <label>Enter your rose name for searching purpose: </label>
+    <input type="text" name="searchString" placeholder="Rose" />
+    <br />
+    <br />
+    <button type="submit" class="btn-info">Search Flower</button>
+</form>
+<br />
+<table border="1">
+    <!--Static row-->
+    <tr style="background-color: yellow">
+        <th>Flower ID</th>
+        <th>Flower Name</th>
+        <th>Flower Description</th>
+        <th>Flower Type</th>
+        <th>Flower Delivery Date</th>
+        <th>Flower Price</th>
+        <th>Edit Action</th>
+        <th>Delete Action</th>
+    </tr>
+    <!--Dynamic row based on database content-->
+    @foreach(var singleflower in Model)
+        {
+            <tr>
+                <td>@singleflower.FlowerID</td>
+                <td>@singleflower.FlowerName</td>
+                <td>@singleflower.FlowerDescription</td>
+                <td>@singleflower.FlowerType</td>
+                <td>@singleflower.DeliveryDate</td>
+                <td>@singleflower.FlowerPrice</td>
+                <td><a asp-action="editpage" asp-controller="Flowers" 
+                    asp-route-FlowerID="@singleflower.FlowerID"><button>Edit</button></a></td>
+                <td><a asp-action="deletepage" asp-controller="Flowers" 
+                    asp-route-FlowerID="@singleflower.FlowerID"><button>Delete</button></a></td>
+            </tr>
+        }
+</table>
+
+</center>

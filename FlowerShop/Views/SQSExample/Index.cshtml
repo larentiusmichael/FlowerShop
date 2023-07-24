@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+    <h1>Order Page:</h1>
+    <br /><hr /><br />
+    <p>Total number of order still waiting inside the queue: @ViewBag.count</p>
+    <br />
+    <form asp-action="sendMsgToQueue" asp-controller="SQSExample">
+        <label>Customer Name: </label> &nbsp;&nbsp;
+        <input type="text" name="custname" placeholder="Abc 123" />
+        <br /><br />
+        <label>Number Pax for Reservation: </label> &nbsp;&nbsp;
+        <input type="number" name="pax" />
+        <br /><br />
+        <label>Customer Email Contact: </label> &nbsp;&nbsp;
+        <input type="text" name="email" placeholder="abc123@gmail.com" />
+        <br /><br />
+        <button type="submit" class="btn-info">Reserve a table</button>
+    </form>
+</center>
+

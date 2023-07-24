@@ -1,0 +1,13 @@
+﻿@model String
+@{
+    ViewData["Title"] = "processSubscription";
+}
+
+<center>
+    <h1>Congratulation! You have done the subscription</h1>
+    <p>Please check your email now to confirm your subscription!</p>
+    <p>Your subscription id is @ViewBag.emailRequestId</p>
+    <form asp-action="Index" asp-controller="SNSExample">
+        <button type="submit" class="btn-info">Back to Index Page</button>
+    </form>
+</center>
